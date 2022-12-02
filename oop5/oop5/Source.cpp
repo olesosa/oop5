@@ -4,10 +4,9 @@ using namespace std;
 
 class Base
 {
+	virtual int GetFigureV() { int v = 0; return v; };
 
-	virtual int FigureV() = 0;
-
-	virtual void Print() = 0;
+	virtual void Print() { cout << "info"; };
 
 };
 
@@ -26,7 +25,7 @@ public:
 		this->c = c;
 	}
 
-	int FigureV() override
+	int GetFigureV() override
 	{
 		int v = a * b * c;
 		return v;
@@ -34,7 +33,7 @@ public:
 
 	void Print() override
 	{
-		cout << "Paral info: \n" << a << " " << b << " " << c << "\nParal V: \n" << FigureV() << endl << endl;
+		cout << "Paral info: \n" << a << " " << b << " " << c << "\nParal V: \n" << GetFigureV() << endl << endl;
 	}
 
 };
@@ -61,7 +60,7 @@ public:
 		h = (a * sqrt(6))*3;
 	}
 
-	int FigureV() override
+	int GetFigureV() override
 	{
 		if (h != (a * sqrt(6)) * 3)
 		{
@@ -77,7 +76,7 @@ public:
 
 	void Print() override
 	{
-		cout << "Piramid info: \n" << a << " " << b << " " << h << "\nPiramid V: \n" << FigureV() << endl << endl;
+		cout << "Piramid info: \n" << a << " " << b << " " << h << "\nPiramid V: \n" << GetFigureV() << endl << endl;
 	}
 
 };
@@ -95,7 +94,7 @@ public:
 		this->r = r;
 	}
 
-	int FigureV() override
+	int GetFigureV() override
 	{
 		float pi = 3.14;
 		int v = 4 / 3 * pi * pow(r, 3);
@@ -104,9 +103,8 @@ public:
 
 	void Print() override
 	{
-		cout << "Sphere info: \n" << r << "\nSphere V: \n" << FigureV() << endl << endl;
+		cout << "Sphere info: \n" << r << "\nSphere V: \n" << GetFigureV() << endl << endl;
 	}
-
 
 };
 
@@ -114,19 +112,19 @@ int main()
 {
 
 	Paral one(1, 2, 3);
-	one.FigureV();
+	one.GetFigureV();
 	one.Print();
 
 	Piramid two(1, 2, 3);
-	two.FigureV();
+	two.GetFigureV();
 	two.Print();
 
 	Piramid three(2);
-	three.FigureV();
+	three.GetFigureV();
 	three.Print();
 
 	Sphere four(3);
-	four.FigureV();
+	four.GetFigureV();
 	four.Print();
 
 	system("pause");
